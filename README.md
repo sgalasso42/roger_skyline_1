@@ -71,3 +71,6 @@ Exemple in `crontab`, `crontab_script` and `update_script` in the repo
 * edit /etc/crontab to run it on boot, reboot and each week at 4am<br>
 * make a script to check Crontab file modifications<br>
 * edit /etc/crontab to run it each day at midnight<br>
+
+## Author
+sgalasso
