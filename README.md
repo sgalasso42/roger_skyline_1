@@ -16,10 +16,10 @@
 * add `address your_new_ip`<br>
 * add `netmask 255.255.255.252`<br>
 * add `gateway your_gateway`<br>
-`&> sudo reboot` - restart the VM<br>
-then try to `ping` to check if youd did it right
+* `&> sudo reboot` - restart the VM<br>
+* then try to `ping` to check if youd did it right
 ### Setup SSH access
-* open the /etc/ssh/sshd_config file<br>
+open the /etc/ssh/sshd_config file<br>
 uncomment `#Port 22` and change `22` to a value > 1024 and < 65535<br>
 `&> sudo service ssh restart` - restart the services<br>
 Try to connect by SSH to check if it work<br>
@@ -27,12 +27,12 @@ Try to connect by SSH to check if it work<br>
 `PubkeyAuthentication yes` - grant SSH key access<br>
 `&> sudo service ssh restart` - restart the services
 ### Publickeys SSH access
-- On the client machine<br>
+On the client machine<br>
 `&> ssh-keygen` - to generate a ssh key<br>
 `&> ssh-copy-id username@your_ip -p your_ssh_port` - to generate a ssh key<br>
 if `Number of key(s) added: 1` has been send to the terminal, then it's good<br>
 `&> ssh username@your_ip -p your_ssh_port` - try to connect with ssh key<br>
-* open the /etc/ssh/sshd_config file<br>
+open the /etc/ssh/sshd_config file<br>
 `PasswordAuthentication no` - prohibit SSH password access<br>
 `&> sudo service ssh restart` - restart the services<br>
 retry to connect with SSH to check if it work
@@ -52,12 +52,12 @@ exemple in the `iptables_script` file in the repo<br>
 ### Anti port scan security
 `https://fr-wiki.ikoula.com/fr Se_prot%C3%A9ger_contre_le_scan_de_ports_avec_portsentry`
 ### Try DOS attack and port scan on your VM
-* Make a new virtual machine (you can clone this one, but don't forgot to change the ip)<br>
+Make a new virtual machine (you can clone this one, but don't forgot to change the ip)<br>
 `&> sudo git clone https://github.com/gkbrk/slowloris.git` - get slowloris<br>
 `&> sudo python3 slowloris.py target_ip:target_port`<br>
 if your target VM is still working then it work
 ### Try a port scan on your VM
-* Make a new virtual machine (you can clone this one, but don't forgot to change the ip)<br>
+Make a new virtual machine (you can clone this one, but don't forgot to change the ip)<br>
 `&> sudo apt-get install nmap` - get nmap<br>
 `&> sudo nmap target_ip`<br>
 if nmap is not finding port, then it's good
@@ -66,8 +66,8 @@ if nmap is not finding port, then it's good
 `&> sudo apt-get remove name_of_service` - remove the service<br>
 `&> sudo apt-get purge name_of_service` - purge the service
 ### Scripts
+Exemple in `crontab`, `crontab_script` and `update_script` in the repo
 * make a script to update packages<br>
 * edit /etc/crontab to run it on boot, reboot and each week at 4am<br>
 * make a script to check Crontab file modifications<br>
 * edit /etc/crontab to run it each day at midnight<br>
-Exemple in `crontab`, `crontab_script` and `update_script` in the repo
