@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cat /etc/crontab > /home/username/crontab_tmp
+
+DIFF=$(sudo diff /home/username/crontab_tmp /home/username/crontab_last)
+
+if [ "$DIFF" != "" ];
+then
+	echo "Arrrg !!! Crontab has changed, a mail as been send to root"
+	sudo mail -s "crontab" root < /home/username/crontab_tmp
+else
+	echo "Crontab is goood, no worries"
+fi
+
+sudo rm -rf /home/username/crontab_tmp
+sudo cat /etc/crontab > /home/username/crontab_last
