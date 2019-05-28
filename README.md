@@ -29,7 +29,7 @@ Try to connect by SSH to check if it work<br>
 ### Publickeys SSH access
 On the client machine<br>
 `&> ssh-keygen` - to generate a ssh key<br>
-`&> ssh-copy-id username@your_ip -p your_ssh_port` - to generate a ssh key<br>
+`&> ssh-copy-id username@your_ip -p your_ssh_port` - copy and send the key by ssh<br>
 if `Number of key(s) added: 1` has been send to the terminal, then it's good<br>
 `&> ssh username@your_ip -p your_ssh_port` - try to connect with ssh key<br>
 open the /etc/ssh/sshd_config file<br>
